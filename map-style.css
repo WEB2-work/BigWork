@@ -1,0 +1,74 @@
+body,
+p,
+img {
+    margin: 0;
+    padding: 0;
+}
+
+#box {
+    width: 1510px;
+    height: 767px;
+    position: relative;
+    margin: 0px auto;
+    border: 1px black solid;
+}
+
+#img1 {
+    width: 310px;
+    height: 500px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#txt {
+    width: 308px;
+    height: 267px;
+    background-color: #a37d4c;
+    border: black solid 1px;
+    position: absolute;
+    left: 0;
+    top: 500px;
+}
+
+#txt h1 {
+    color: white;
+    text-align: center;
+}
+
+#slider {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: solid black 1px;
+    background: #CCC;
+    opacity: 0.4;
+    cursor: move;
+    display: none;
+    filter: alpha(opacity=40);
+}
+
+#img2 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+    width: 1200px;
+    height: 767px;
+    overflow: hidden;
+}
+
+#Bimg {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+body {
+    background-image: url(image/look2.jpg);
+    background-position: 435px -30px;
+    background-repeat: no-repeat;
+    /* background-position: 323px; */
+}
