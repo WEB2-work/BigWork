@@ -28,7 +28,7 @@ li {
     height: 968px;
 }
 
-.box>span {
+ .box>span {
     display: block;
     width: 63px;
     height: 63px;
@@ -40,7 +40,7 @@ li {
     position: absolute;
     /* display: none; */
     opacity: 0;
-}
+} 
 
 #left {
     left: 0px;

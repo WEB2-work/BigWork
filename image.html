@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    #box {
+        width: 1800px;
+        margin: 20px auto;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="animate3.js"></script>
+    <title>image</title>
+</head>
+<div id="box">
+
+</div>
+
+<body>
+
+</body>
+<script>
+    var body1 = document.getElementById("body");
+    var box = document.getElementById("box");
+    var i = 1;
+    var count = 1;
+
+    function app() {
+        var img = document.createElement("img");
+        img.src = "show" + i++ + ".jpg";
+        count++;
+        img.style.width = "450px";
+        img.style.height = "300px";
+        img.style.position = "relative";
+        if (count <= 4) {
+            img.style.top = "645px";
+        }
+        if (count <= 8) {
+            img.style.top = "300px";
+        } else {
+            img.style.top = "30px";
+        }
+        img.style.left = 0 + "px";
+        box.appendChild(img);
+        animate(img, {
+            top: 0
+        });
+        if (i == 13) {
+            clearInterval(IntervalId);
+        }
+    }
+    var IntervalId = setInterval(app, 150);
+    //生成从minNum到maxNum的随机数
+    function randomNum(minNum, maxNum) {
+        switch (arguments.length) {
+            case 1:
+                return parseInt(Math.random() * minNum + 1, 10);
+                break;
+            case 2:
+                return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+                break;
+            default:
+                return 0;
+                break;
+        }
+    }
+</script>
+
+</html>

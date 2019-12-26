@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> 轮播图</title>
+    <script src="animate.js"></script>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <div class="box" id="box">
+        <div class="slide"><img id="b1" src="image/b1.jpg"></div>
+        <div class="slide"><img id="b2" src="image/b2.jpg"></div>
+        <div class="slide"><img id="b3" src="image/b3.jpg"></div>
+        <div class="slide"><img id="b4" src="image/b4.jpg"></div>
+        <span id="left"><img src="image/prev.png" alt=""></span>
+        <span id="right"><img src="image/next.png" alt=""></span>
+        <ul class="nav" id="nav">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+<script>
+    var b1 = document.getElementById("b1");
+    var b2 = document.getElementById("b2");
+    var b3 = document.getElementById("b3");
+    var b4 = document.getElementById("b4");
+    var box = document.getElementById("box");
+    var oNavlist = document.getElementById("nav").children;
+    var slide = document.getElementsByClassName("slide");
+    var left = document.getElementById("left");
+    var right = document.getElementById("right");
+    var index = 0
+        //鼠标划入
+    for (var i = 1; i < 4; i++) {
+        slide[i].style.opacity = 0;
+    }
+    var IntervaiId = setInterval(next, 2000);
+    box.onmouseover = function() {
+            animate(left, {
+                opacity: 100
+            });
+            animate(right, {
+                opacity: 200
+            });
+            clearInterval(IntervaiId);
+        }
+        //鼠标划出
+    box.onmouseout = function() {
+        animate(left, {
+            opacity: 0
+        });
+        animate(right, {
+            opacity: 0
+        });
+        IntervaiId = setInterval(next, 2000);
+    }
+    right.onclick = next;
+    left.onclick = prev;
+
+    function next() {
+        var n;
+        if (index >= slide.length - 1) {
+            n = 0;
+        } else {
+            n = index + 1;
+        }
+        animate(slide[index], {
+            opacity: 0
+        });
+        animate(slide[n], {
+            opacity: 100
+        });
+        if (index >= slide.length - 1) {
+            index = 0;
+        } else {
+            index++;
+        }
+        navchange();
+    }
+
+    function prev() {
+        var n;
+        if (index <= 0) {
+            n = slide.length - 1;
+        } else {
+            n = index - 1;
+        }
+        console.log(index, n);
+        animate(slide[index], {
+            opacity: 0
+        });
+        animate(slide[n], {
+            opacity: 100
+        });
+        if (index <= 0) {
+            index = slide.length - 1;
+        } else {
+            index--;
+        }
+        navchange();
+    }
+
+    for (var i = 0; i < oNavlist.length; i++) {
+        oNavlist[i].idx = i;
+        oNavlist[i].onclick = function() {
+            var n = this.idx;
+            if (n == index) {
+                return;
+            }
+            animate(slide[n], {
+                opacity: 100
+            });
+            animate(slide[index], {
+                opacity: 0
+            });
+            index = n;
+            navchange();
+        }
+    }
+
+    //按钮变换函数
+
+    function navchange() {
+        for (var i = 0; i < oNavlist.length; i++) {
+            oNavlist[i].className = "";
+        }
+        oNavlist[index].className = "active";
+    }
+</script>
+
+</html>

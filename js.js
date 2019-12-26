@@ -167,14 +167,6 @@ ppp8.onclick=function(){
 		alert("猜错了，不要灰心哦！")
 	}
 }
-// var spare = 100;
-//   setInterval(function(){
-//     spare--;
-//     if(spare==-400){
-//       spare = 100;
-//     }
-//     demo.style.left = spare+"px";
-// },10)
 var b1 = document.getElementById("b1");
     var b2 = document.getElementById("b2");
     var b3 = document.getElementById("b3");
@@ -281,3 +273,13 @@ var b1 = document.getElementById("b1");
         }
         oNavlist[index].className = "active";
     }
+    var count = -480;
+    var ex = document.getElementById("ex");
+    setInterval(function(){
+        ex.style.left = ++count + "px";
+        if(count==1440){
+            ex.style.left = -1240 + "px";
+            count = -1240;
+        }
+    },2)
+    

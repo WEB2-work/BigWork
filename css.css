@@ -125,6 +125,18 @@ div {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.in21 img{
+    top: 50px;
+    position: relative;
+}
+.in22 img{
+    top: 50px;
+    position: relative;
+}
+.in23 img{
+    top: 50px;
+    position: relative;
+}
 
 .in23 {
     display: inline-block;
@@ -207,12 +219,22 @@ div {
 }
 
 .ex {
-    color: coral;
     display: inline-block;
     overflow: hidden;
     position: relative;
+    bottom: 0;
+    left:-480px;
+    background-color: black;
+    /* opacity: 0.5; */
+    width: 480px;
+    height: 80px;
 }
-
+.ex p{
+    font-size: 30px;
+    color:white;
+    opacity: 1;
+    margin-top: 18px;
+}
 #demo {
     font-size: 40px;
     display: inline-block;

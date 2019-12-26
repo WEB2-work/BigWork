@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    #box {
+        width: 1800px;
+        margin: 20px auto;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="animate2.js"></script>
+    <title>image</title>
+</head>
+<div id="box">
+
+</div>
+
+<body>
+
+</body>
+<script>
+    var body1 = document.getElementById("body");
+    var box = document.getElementById("box");
+
+    function app() {
+        var img = document.createElement("img");
+        img.src = "s" + randomNum(1, 16) + ".jpg";
+        img.style.width = "450px";
+        img.style.height = "300px";
+        img.style.position = "fixed";
+        img.style.top = "645px";
+        img.style.left = 35 + 20 * randomNum(0, 70) + "px";
+        box.appendChild(img);
+        animate(img, {
+            top: -300
+        });
+    }
+    var IntervalId = setInterval(app, 1400);
+    var IntervalId2 = setInterval(app, 1700);
+    var IntervalId3 = setInterval(app, 1900);
+    var IntervalId4 = setInterval(app, 2300);
+    var IntervalId4 = setInterval(app, 2500);
+    var IntervalId4 = setInterval(app, 1500);
+    var IntervalId4 = setInterval(app, 2600);
+    var IntervalId4 = setInterval(app, 2900);
+
+
+    //生成从minNum到maxNum的随机数
+    function randomNum(minNum, maxNum) {
+        switch (arguments.length) {
+            case 1:
+                return parseInt(Math.random() * minNum + 1, 10);
+                break;
+            case 2:
+                return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+                break;
+            default:
+                return 0;
+                break;
+        }
+    }
+</script>
+
+</html>
